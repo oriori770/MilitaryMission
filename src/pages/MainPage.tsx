@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { IMission,IMissionOnDb } from '../types/types'
-import ToDoList from '../component/MissionList/MissionList'
+import MissionList from '../component/MissionList/MissionList'
 // import Shearch from "../component/search/search"
 import Button from '../component/buttons/Button'
 import { getMissions,deleteMissions,postMissions,updateMissions } from '../DAL/ConectToRender'
@@ -16,7 +16,7 @@ const MainPage = () => {
         asyncfunc()
     },[])
 
-    const deleteMission = async(id: string) => {
+    const deleteMission = async(id: string): Promise<IMissionOnDb> => {
         const missions:IMissionOnDb = await deleteMissions(id)
         setMissionList(await getMissions())
         return missions
@@ -26,7 +26,7 @@ const MainPage = () => {
         setMissionList(await getMissions())
         return missions
     }
-    const changeMissionStatus = async(id: string) => {
+    const changeMissionStatus = async (id: string): Promise<{message: string}> => {
         const missions:{message: string} = await updateMissions(id)
         setMissionList(await getMissions())
         return missions
@@ -35,7 +35,7 @@ const MainPage = () => {
   return (
     <>
         {/* <Shearch refToValue={newMission} />  <Button text="Add" onClick={() => addNewToDo(createNewToDo(newMission.current!.value))} /> */}
-        {/* <ToDoList toDoListUs={missionList} deleteToDo={deleteMission} changeMissionStatus={changeMissionStatus} /> */}
+        <MissionList missionList={missionList} deleteMission={deleteMission} changeMissionStatus={changeMissionStatus} />
     </>
   )
 }

@@ -1,17 +1,28 @@
-import React from 'react'
-import { IMission } from '../../types/types'
-import Mission from '../Mission/Mission'
+import React from "react";
+import { IMission, IMissionOnDb } from "../../types/types";
+import Mission from "../Mission/Mission";
 interface Props {
-    toDoListUs: IMission[],
-    deleteToDo: (id: string) => void,
-    changeMissionStatus: (id: string) => void
+  missionList: IMission[];
+  deleteMission: (id: string) => Promise<IMissionOnDb>;
+  changeMissionStatus: (id: string) => Promise<{ message: string }>;
 }
-const ToDoList = ({toDoListUs, deleteToDo, changeMissionStatus}: Props) => {
+const MissionList = ({
+  missionList,
+  deleteMission,
+  changeMissionStatus,
+}: Props) => {
   return (
     <>
-        {toDoListUs.map((toDo) => <Mission toDo={toDo} key={toDo.id} deleteToDo={deleteToDo} changeMissionStatus={changeMissionStatus}/>)}
+      {missionList.map((mission: IMission) => (
+        <Mission
+          mission={mission}
+          key={mission._id}
+          deleteMission={deleteMission}
+          changeMissionStatus={changeMissionStatus}
+        />
+      ))}
     </>
-      )
-}
+  );
+};
 
-export default ToDoList
+export default MissionList;

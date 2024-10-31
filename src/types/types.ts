@@ -1,5 +1,5 @@
 export interface IMission {
-  id?: string;
+  _id: string;
   name: string;
   priority: Priority;
   status: Status;
