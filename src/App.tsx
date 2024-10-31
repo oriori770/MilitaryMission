@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import {getMissions} from "./DAL/ConectToRender"
+import {getMissions,deleteMissions,postMissions,updateMissions} from "./DAL/ConectToRender"
+import {IMission,Priority,Status} from "./types/types"
 
 import './App.css'
 import MainPage from './pages/MainPage'
@@ -11,9 +12,15 @@ function App() {
         <div>
           <MainPage />
         </div>
-        <button onClick={async () =>console.log(await getMissions())}>get</button>
     </>
   )
 }
-
 export default App
+
+// const f:IMission = {
+//     name: "string", 
+//     status: Status.Pending,
+//     priority: Priority.Low,
+//     description: "string"
+    
+// }

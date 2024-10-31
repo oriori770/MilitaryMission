@@ -31,11 +31,11 @@ const MainPage = () => {
         setMissionList(await getMissions())
         return missions
     }
-    console.log(missionList,"maun page");
+    // console.log(missionList,"maun page");
   return (
     <>
         {/* <Shearch refToValue={newMission} />  <Button text="Add" onClick={() => addNewToDo(createNewToDo(newMission.current!.value))} /> */}
-        <ToDoList toDoListUs={missionList} deleteToDo={deleteMission} changeMissionStatus={changeMissionStatus} />
+        {/* <ToDoList toDoListUs={missionList} deleteToDo={deleteMission} changeMissionStatus={changeMissionStatus} /> */}
     </>
   )
 }

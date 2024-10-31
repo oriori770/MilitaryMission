@@ -1,8 +1,9 @@
 export interface IMission {
   id?: string;
-  mission: string;
+  name: string;
   priority: Priority;
   status: Status;
+  description: string;
 }
 export enum Priority {
   Low = "Low",

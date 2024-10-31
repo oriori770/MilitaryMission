@@ -24,12 +24,12 @@ export const deleteMissions = async (id: string): Promise<IMissionOnDb> => {
     const response = await axios.delete(baseUrl +"/" + apikey + "/" + id);
     return response.data;
   } catch (error) {
-    throw new Error('Failed to delete missions');
+    throw new Error('Failed to delete mission');
   }
 };
 export const updateMissions = async (id: string): Promise<{message: string}> => {
   try {
-    const response = await axios.delete(baseUrl +"/" + apikey + "/" +"progress/" + id);
+    const response = await axios.post(baseUrl +"/" + apikey + "/" +"progress/" + id);
     return response.data;
   } catch (error) {
     throw new Error('Failed to update missions');
