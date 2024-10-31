@@ -22,3 +22,9 @@ export interface IMissionOnDb extends IMission {
     apikey: string,
     _v: number
 }
+export type DtoMission = {
+  name: string;
+  priority: Priority;
+  status: Status;
+  description: string;
+}
