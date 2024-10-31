@@ -31,7 +31,7 @@ const FormNewMission = ({ addNewMission }: Props) => {
       <input ref={descriptionInput} type="text" placeholder="mission description" />
 
       <Button
-        text="Add"
+        text="Add Mission"
         onClick={() =>
           addNewMission(
  {

@@ -15,7 +15,7 @@ const Mission = ({mission,deleteMission, changeMissionStatus}: Props) => {
            <p>Priority:({mission.priority})</p>
            <p>Description:{mission.description}</p>
            <Button text="Delete" onClick={()=>deleteMission(mission._id  )}/>   
-            {mission.status!="Completed" && <Button text="Complete" onClick={()=>changeMissionStatus(mission._id)}/>}
+            {mission.status!="Completed" && <Button text="Progress" onClick={()=>changeMissionStatus(mission._id)}/>}
     </div>
   )
 }
